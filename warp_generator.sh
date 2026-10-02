@@ -2,13 +2,13 @@
 
 clear
 if [ -d "/home/runner" ] || [ ! -z "$REPL_ID" ]; then
-    echo "[INFO] Запуск в Replit — пропускаем установку системных пакетов"
+    echo "[INFO] Running in Replit — skipping system package installation"
 else
     mkdir -p ~/.cloudshell && touch ~/.cloudshell/no-apt-get-warning
     apt update -y && apt install sudo -y
     out="$(sudo apt-get update -y --fix-missing 2>&1)" || {
       echo "$out" | grep -qiE "dl\.yarnpkg\.com|NO_PUBKEY 62D54FD4003F6525|is not signed" || { echo "$out"; exit 1; }
-      echo "[WARN] Yarn repo ломает apt update — удаляю yarn.list и повторяю..."
+      echo "[WARN] Yarn repo breaks apt update — removing yarn.list and retrying..."
       sudo rm -f /etc/apt/sources.list.d/yarn.list
     }
     sudo apt-get update -y --fix-missing && sudo apt-get install wireguard-tools jq wget qrencode -y --fix-missing
@@ -24,7 +24,7 @@ response=$(ins POST "reg" -d "{\"install_id\":\"\",\"tos\":\"$(date -u +%FT%TZ)\
 clear
 id=$(echo "$response" | jq -r '.result.id')
 token=$(echo "$response" | jq -r '.result.token')
-# Если Cloudflare вернул ошибку
+# If Cloudflare returned an error
 if [ "$id" = "null" ] || [ -z "$id" ] || [ "$token" = "null" ] || [ -z "$token" ]; then
   echo "[ERROR] Registration failed:"
   echo "$response" | jq .
@@ -105,28 +105,28 @@ AMNEZIA_JSON=$(jq -n \
 
 VPN_KEY="vpn://$(echo -n "$AMNEZIA_JSON" | base64 -w 0)"
 
-[ -t 1 ] && echo "########## СТРОКА ДЛЯ AMNEZIAVPN ##########"
+[ -t 1 ] && echo "########## STRING FOR AMNEZIAVPN ##########"
 echo "$VPN_KEY"
-[ -t 1 ] && echo "########### КОНЕЦ СТРОКИ ДЛЯ AMNEZIAVPN ###########"
+[ -t 1 ] && echo "########### END OF STRING FOR AMNEZIAVPN ###########"
 
 echo -e "\n\n\n"
-[ -t 1 ] && echo "########## НАЧАЛО КОНФИГА ##########"
+[ -t 1 ] && echo "########## CONFIG START ##########"
 echo "${conf}"
-[ -t 1 ] && echo "########### КОНЕЦ КОНФИГА ###########"
+[ -t 1 ] && echo "########### CONFIG END ###########"
 
 echo -e "\n"
 conf_base64=$(echo -n "${conf}" | base64 -w 0)
-echo "Скачать конфиг файлом: https://immalware.vercel.app/download?filename=WARP.conf&content=${conf_base64}"
-echo "Импортируйте конфиг в приложение AmneziaWG или AmneziaVPN"
+echo "Download config file: https://immalware.vercel.app/download?filename=WARP.conf&content=${conf_base64}"
+echo "Import the config into the AmneziaWG or AmneziaVPN application"
 echo -e "\n"
-echo "Подробный гайд тут: https://wiki.malw.link/network/vpns/warp"
-echo "Что-то не получилось? Есть вопросы? Пишите в чат: https://t.me/immalware_chat"
+echo "Detailed guide here: https://wiki.malw.link/network/vpns/warp"
+echo "Something didn't work? Have questions? Ask in chat: https://t.me/immalware_chat"
 echo "${conf}" > warp.conf
 
 if [ "$CODESPACES" = "true" ]; then
-    echo "[INFO] Обнаружен GitHub Codespaces. Конфиг сохранен в warp.conf. В левом меню с файлами нажмите правой кнопкой на warp.conf и выберите Скачивание."
+    echo "[INFO] GitHub Codespaces detected. Config saved to warp.conf. In the left file explorer, right-click warp.conf and select Download."
 fi
 
 if [ -d "/home/runner" ] || [ ! -z "$REPL_ID" ]; then
-    echo "[INFO] Обнаружен Replit. Конфиг сохранен в warp.conf. В правом меню нажмите File Tree, нажмите правой кнопкой на warp.conf и выберите Download."
+    echo "[INFO] Replit detected. Config saved to warp.conf. In the right menu click File Tree, right-click warp.conf and select Download."
 fi
