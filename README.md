@@ -1,71 +1,69 @@
-# Генератор конфигов Cloudflare WARP для AmneziaWG и Clash
-Не стоит выполнять скрипты локально, так как РКН заблокировал запросы для получения конфигурации. Вместо этого лучше запускать их на удалённых серверах. Ниже приведены несколько подходящих сервисов, которые предоставляют бесплатные временные серверы.
-## 1. WARP для AmneziaWG
-### Вариант 1: Killercoda
-1. Перейдите на https://killercoda.com/playgrounds/scenario/ubuntu
-2. Войдите через Google
-3. Когда процесс входа закончится, отобразится терминал. Вставьте команду (Shift + Insert):
+# Cloudflare WARP Config Generator for AmneziaWG and Clash
+Do not run the scripts locally, as Roskomnadzor (RKN) has blocked the requests needed to fetch the configuration. Instead, it is better to run them on remote servers. Below are a few suitable services that provide free, temporary servers.
+## 1. WARP for AmneziaWG
+### Option 1: Killercoda
+1. Go to https://killercoda.com/playgrounds/scenario/ubuntu
+2. Log in via Google.
+3. Once the login process is complete, a terminal will appear. Paste the command (Shift + Insert):
 ```bash
 bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/warp_generator.sh)
 ```
-4. После того как конфиг сгенерируется, скопируйте его и вставьте в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + C, затем вставьте её в адресную строку браузера. Импортируйте файл в [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) или [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
+4. After the config is generated, copy it and paste it into a new text file. Alternatively, to download it as a file, highlight the link, press Ctrl + C, and then paste it into your browser's address bar. Import the file into [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) or [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
 
-### Вариант 2: Replit
-1. Зайдите сюда: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/ImMALWARE/bash-warp-generator)
-2. Войдите или создайте аккаунт.
-3. В центральной панели с вкладками откройте новую вкладку и выберите Console.
-4. Нажмите кнопку **▶️Project** (может называться **▶️Run .replit run command**)
-5. Введите в терминале 1 для генерации конфига AmneziaWG и нажмите Enter.
-6. После того как конфиг сгенерируется, он будет сохранён в `warp.conf`. В правом меню нажмите "File Tree", затем нажмите правой кнопкой мыши на `warp.conf` и выберите Download.
-Также вы можете скопировать конфиг из терминала и вставить его в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + Shift + C, затем вставьте её в адресную строку браузера. Импортируйте файл в [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) или [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
+### Option 2: Replit
+1. Go here: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/ImMALWARE/bash-warp-generator)
+2. Log in or create an account.
+3. In the central tabbed panel, open a new tab and select **Console**. 4. Click the **▶️Project** button (it might be labeled **▶️Run .replit run command**).
+5. Enter the command in Terminal 1 to generate the AmneziaWG config and press Enter.
+6. Once the config is generated, it will be saved as `warp.conf`. In the right-hand menu, click "File Tree," then right-click on `warp.conf` and select "Download."
+Alternatively, you can copy the config from the terminal and paste it into a new text file. Or, to download it as a file, highlight the link, press Ctrl + Shift + C, and paste it into your browser's address bar. Import the file into [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) or [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
 
-### Вариант 3: GitHub Codespaces
-1. Перейдите по ссылке: https://github.com/ImMALWARE/bash-warp-generator/codespaces
-2. Войдите в GitHub.
-3. Нажмите **`Create codespace on main`**
-4. Дождитесь, пока среда загрузится. Это может занять 10-30 секунд.
-5. Если внизу экрана не появился терминал, нажмите в верхнем меню Терминал -> Создать терминал. Затем вставьте в терминал команду (Shift + Insert):
+### Option 3: GitHub Codespaces
+1. Go to this link: https://github.com/ImMALWARE/bash-warp-generator/codespaces
+2. Log in to GitHub.
+3. Click **`Create codespace on main`**.
+4. Wait for the environment to load. This may take 10–30 seconds.
+5. If the terminal does not appear at the bottom of the screen, go to the top menu and select Terminal -> New Terminal. Then, paste the following command into the terminal (Shift + Insert):
 ```bash
 bash warp_generator.sh
 ```
-6. После того как конфиг сгенерируется, он будет сохранён в `warp.conf`. В левом меню с файлами нажмите правой кнопкой мыши на `warp.conf` и выберите "Скачивание".
-Также вы можете скопировать конфиг из терминала и вставить его в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + Shift + C, затем вставьте её в адресную строку браузера. Импортируйте файл в [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) или [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
+6. Once the config is generated, it will be saved as `warp.conf`. In the left-hand file menu, right-click on `warp.conf` and select "Download."
+Alternatively, you can copy the config from the terminal and paste it into a new text file. Alternatively, to download it as a file, highlight the link, press Ctrl + Shift + C, and then paste it into your browser's address bar. Import the file into [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) or [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
 
-## 2. WARP MASQUE для Clash
-### Вариант 1: Killercoda
-1. Перейдите на https://killercoda.com/playgrounds/scenario/ubuntu
-2. Войдите через Google
-3. Когда процесс входа закончится, отобразится терминал. Вставьте команду (Shift + Insert):
+## 2. WARP MASQUE for Clash
+### Option 1: Killercoda
+1. Go to https://killercoda.com/playgrounds/scenario/ubuntu
+2. Log in via Google.
+3. Once the login process completes, a terminal will appear. Paste the command (Shift + Insert):
 ```bash
 bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/masque_generator.sh)
 ```
-4. После того как конфиг сгенерируется, скопируйте его и вставьте в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + C, затем вставьте её в адресную строку браузера. О подключении рассказано ниже.
+4. After the config is generated, copy it and paste it into a new text file. Alternatively, to download it as a file, highlight the link, press Ctrl + C, and then paste it into your browser's address bar. Connection instructions are provided below.
 
-### Вариант 2: Replit
-1. Зайдите сюда: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/ImMALWARE/bash-warp-generator)
-2. Войдите или создайте аккаунт.
-3. В правой панели с вкладками откройте новую вкладку и выберите Console.
-4. Нажмите кнопку **▶️Project** (может называться **▶️Run .replit run command**)
-5. Введите в терминале 2 для генерации конфига MASQUE и нажмите Enter.
-6. После того как конфиг сгенерируется, он будет сохранён в `warp-masque-clash.yaml`. В правом меню нажмите "File Tree", затем нажмите правой кнопкой мыши на `warp-masque-clash.yaml` и выберите Download.
-Также вы можете скопировать конфиг из терминала и вставить его в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + Shift + C, затем вставьте её в адресную строку браузера. О подключении рассказано ниже.
+### Option 2: Replit
+1. Go here: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/ImMALWARE/bash-warp-generator)
+2. Log in or create an account.
+3. In the right-hand panel, open a new tab and select **Console**.
+4. Click the **▶️Project** button (it might be labeled **▶️Run .replit run command**).
+5. Enter `2` in the terminal to generate the MASQUE config and press Enter. 6. Once the config is generated, it will be saved as `warp-masque-clash.yaml`. In the right-hand menu, click "File Tree," then right-click on `warp-masque-clash.yaml` and select "Download."
+Alternatively, you can copy the config from the terminal and paste it into a new text file. Or, to download it as a file, highlight the link, press Ctrl + Shift + C, and paste it into your browser's address bar. Connection instructions are provided below.
 
-### Вариант 3: GitHub Codespaces
-1. Перейдите по ссылке: https://github.com/ImMALWARE/bash-warp-generator/codespaces
-2. Войдите в GitHub.
-3. Нажмите **`Create codespace on main`**
-4. Дождитесь, пока среда загрузится. Это может занять 10-30 секунд.
-5. Если внизу экрана не появился терминал, нажмите в верхнем меню Терминал -> Создать терминал. Затем вставьте в терминал команду (Shift + Insert):
+### Option 3: GitHub Codespaces
+1. Go to this link: https://github.com/ImMALWARE/bash-warp-generator/codespaces
+2. Log in to GitHub.
+3. Click **`Create codespace on main`**
+4. Wait for the environment to load. This may take 10–30 seconds.
+5. If a terminal does not appear at the bottom of the screen, go to the top menu and select Terminal -> New Terminal. Then, paste the following command into the terminal (Shift + Insert):
 ```bash
 bash masque_generator.sh
 ```
-6. После того как конфиг сгенерируется, он будет сохранён в `warp-masque-clash.yaml`. В левом меню с файлами нажмите правой кнопкой мыши на `warp-masque-clash.yaml` и выберите "Скачивание".
-Также вы можете скопировать конфиг из терминала и вставить его в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + Shift + C, затем вставьте её в адресную строку браузера. О подключении рассказано ниже.
+6. Once the config is generated, it will be saved as `warp-masque-clash.yaml`. In the left-hand file menu, right-click on `warp-masque-clash.yaml` and select "Download".
+Alternatively, you can copy the config from the terminal and paste it into a new text file. Or, to download it as a file, highlight the link, press Ctrl + Shift + C, and then paste it into your browser's address bar. Connection instructions are provided below.
 
-## Подключение к WARP по протоколу MASQUE
-### Clash Verge Rev для Windows, macOS, Linux
+## Connecting to WARP via the MASQUE protocol
+### Clash Verge Rev for Windows, macOS, Linux
 
-1. Установите Clash Verge Rev.
+1. Install Clash Verge Rev.
 
 Windows: https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.2/Clash.Verge_2.5.2_x64-setup.exe
 
@@ -77,103 +75,98 @@ Linux deb: https://github.com/clash-verge-rev/clash-verge-rev/releases/download/
 
 AUR: `clash-verge-bin`
 
-2. Перейдите в левый раздел "Профили".
-3. Нажмите "НОВЫЙ". Установите Тип: Local. Нажмите "ВЫБРАТЬ ФАЙЛ" и выберите скачанный конфиг `warp-masque-clash.yaml`. Нажмите "СОХРАНИТЬ".
-<img src="https://wiki.malw.link/img/network/vpns/warp/clash-verge-create-profile.png" class="center" width="600px">
-4. Нажмите правой кнопкой мыши на появившийся профиль и выберите "Выбрать".
-5. Перейдите в левый раздел "Прокси".
-6. Нажмите на блок "PROXY". Должен появиться WARP-Masque. Нажмите Check в его правой части.
+2. Go to the "Profiles" section on the left.
+3. Click "NEW". Set the Type to "Local". Click "SELECT FILE" and choose the downloaded `warp-masque-clash.yaml` config. Click "SAVE". <img src="https://wiki.malw.link/img/network/vpns/warp/clash-verge-create-profile.png" class="center" width="600px">
+4. Right-click on the newly appeared profile and select "Select".
+5. Go to the "Proxy" section on the left.
+6. Click on the "PROXY" block. "WARP-Masque" should appear. Click "Check" on the right side of it.
 <img src="https://wiki.malw.link/img/network/vpns/warp/clash-verge-check.png" class="center" width="600px">
 
-Если после этого на месте Check отобразилось число, это значение пинга. Значит, подключение к WARP успешно. Перейдите в левый раздел "Главная", в настройках сети выберите "Режим TUN" и включите его. Таким образом, весь трафик устройства будет идти через WARP.
+If a number appears where "Check" was, that is the ping value. This means the connection to WARP was successful. Go to the "Home" section on the left, select "TUN Mode" in the network settings, and enable it. This ensures all device traffic goes through WARP.
 
-Если же отобразилось "Timeout", значит, подключение к WARP не удалось. Но лучше попробовать проверить несколько раз: не всегда срабатывает с первого раза.
-### FlClash для Android
-1. Скачайте и установите APK FlClash: https://github.com/chen08209/FlClash/releases/download/v0.8.94/FlClash-0.8.94-android-arm64-v8a.apk
-2. Перейдите в раздел Профили. Нажмите "Добавить профиль" -> Файл -> Выберите файл конфига.
-3. Перейдите в раздел "Прокси". Нажмите "Тест задержки". Если отобразилось число, это значение пинга. Значит, подключение к WARP успешно. Перейдите в раздел "Панель управления" и включите VPN, нажав кнопку ▶️.
+If "Timeout" is displayed, the connection to WARP failed. However, it is worth trying a few times, as it doesn't always work on the first attempt.
+### FlClash for Android
+1. Download and install the FlClash APK: https://github.com/chen08209/FlClash/releases/download/v0.8.94/FlClash-0.8.94-android-arm64-v8a.apk
+2. Go to the "Profiles" section. Tap "Add Profile" -> "File" -> Select the config file.
+3. Go to the "Proxy" section. Tap "Latency Test". If a number appears, that is the ping value. This means the connection to WARP was successful. Go to the "Dashboard" section and enable the VPN by tapping the ▶️ button. If "Timeout" appears, the connection to WARP failed. However, it is best to try a few times, as it doesn't always work on the first attempt.
+### Clash Mi for iOS
+1. Install Clash Mi: https://apps.apple.com/us/app/clash-mi/id6744321968?l=ru
+2. Go to "Profiles" -> tap the "+" button at the top -> "Import configuration file." Select the downloaded `warp-masque-clash.yaml` config file.
+3. Select the newly added config from the list of profiles.
+4. Turn on the VPN using the toggle switch at the top of the main screen.
+5. Verify it is working by opening a website, such as https://ipinfo.io/what-is-my-ip.
 
-Если отобразилось "Timeout", значит, подключение к WARP не удалось. Но лучше попробовать проверить несколько раз: не всегда срабатывает с первого раза.
-### Clash Mi для iOS
-1. Установите Clash Mi: https://apps.apple.com/us/app/clash-mi/id6744321968?l=ru
-2. Выберите пункт "Профили" -> кнопка + сверху -> "Импорт файла конфигурации". Выберите скачанный конфиг `warp-masque-clash.yaml`.
-3. Выберите добавленный конфиг в списке профилей.
-4. Включите VPN на главном экране верхним переключателем.
-5. Проверьте работу открытием какого-нибудь сайта, например, https://ipinfo.io/what-is-my-ip.
+# Common errors in AmneziaWG apps
 
-# Частые ошибки в приложениях AmneziaWG
+## Two consecutive commas: ","
 
-## Две запятые подряд: ","
+For some reason, the config was generated incorrectly. Delete it and try generating it again using a different method, or download a working one.
 
-По какой-то причине конфиг сгенерировался неверно. Удалите его, попробуйте сгенерировать заново другим способом или скачайте уже рабочий.
+## Invalid tunnel name: "WARP (1)"
 
-## Название туннеля недействительно: "WARP (1)"
+Rename the .conf file; the filename must not contain spaces or parentheses.
 
-Переименуйте файл .conf: в его имени не должно быть пробелов и скобок.
+## Invalid key for the [Interface] section: "s1"
 
-## Неверный ключ для секции [Interface]: "s1"
+You need to import the WARP config into AmneziaWG or AmneziaVPN, not WireGuard!
 
-Импортировать конфиг WARP нужно не в WireGuard, а в AmneziaWG или AmneziaVPN!
+## Invalid name
 
-## Неправильное имя
+In the AmneziaWG mobile app, the config name must not exceed 15 characters.
 
-В мобильном приложении AmneziaWG название конфига должно быть не длиннее 15 символов.
+## Enable WireGuard obfuscation
 
-## Включить обфускацию WireGuard
+If the S1 and S2 values ​​are missing from the config, AmneziaVPN will prevent you from connecting and suggest enabling obfuscation. The AmneziaWG app can read such malformed configs, but using them is still not recommended. ## Unable to create Wintun interface
 
-Если в конфиге отсутствуют значения S1 и S2, AmneziaVPN не даст подключиться к нему и предложит включить обфускацию. Приложение AmneziaWG умеет читать такие сломанные конфиги, но использовать их всё равно не рекомендуется.
+### Solution 1: Deleting a registry entry
+1.  Open the Windows Registry Editor. You can find it via search or by running the command `regedit`.
+2.  Navigate to **HKEY_CLASSES_ROOT** -> **CLSID**. Find and delete the key `{3d09c1ca-2bcc-40b7-b9bb-3f3ec143a87b}`.
+3.  Restart the AmneziaWG application.
 
-## Unable to create Wintun interface
+### Solution 2: Reinstalling AmneziaWG as administrator:
 
-### Решение 1: Удаление записи в реестре
-1.  Откройте "Редактор реестра" в Windows. Его можно найти в поиске, либо [выполнить команду](https://wiki.malw.link/windows/run) `regedit`.
-2.  Перейдите в **HKEY_CLASSES_ROOT** -> **CLSID**. Найдите и удалите раздел `{3d09c1ca-2bcc-40b7-b9bb-3f3ec143a87b}`.
-3.  Перезапустите приложение AmneziaWG.
+1.  Uninstall AmneziaWG via "Programs and Features".
+2.  Copy the full path to the AmneziaWG installer .msi file. To do this, **hold down Shift**, right-click the file, and select "Copy as path".
+3.  Open the Command Prompt as administrator.
+4.  Paste the copied path into the Command Prompt by right-clicking inside the window, then press Enter.
 
-### Решение 2: Переустановка AmneziaWG от имени администратора:
+This will launch the MSI file with administrator privileges. This may resolve the issue.
 
-1.  Удалите AmneziaWG в "Программах и компонентах".
-2.  Скопируйте полный путь к .msi файлу установщика AmneziaWG. Для этого, **удерживая Shift**, нажмите правой кнопкой мыши по нему -> Копировать как путь.
-3.  Откройте [Командную строку от имени администратора](https://wiki.malw.link/windows/run).
-4.  Вставьте в командную строку скопированный путь, нажав по ней правой кнопкой мыши, и нажмите Enter.
+### Solution 3: Removing the Wintun driver:
 
-Таким образом, MSI-файл будет открыт от имени администратора. Возможно, это решит проблему.
+1.  Uninstall AmneziaWG via "Programs and Features".
+2.  Open the Command Prompt as administrator.
+3.  Run the following commands:
+```bat
+dism /online /get-drivers /format:table > drivers.txt
+notepad drivers.txt
+```
+4.  Find `wintun.inf`. You need the corresponding OEM number. In my case, it is `oem7.inf`:
+<img src="https://wiki.malw.link/img/network/vpns/amneziawg/wintun-inf.png">
+5.  Run the command to remove it:
+```bat
+pnputil.exe /d oem7.inf
+```
+Replace "7" with the number that corresponds to `wintun.inf` in your Notepad file!
+6.  Copy the full path to the AmneziaWG installer .msi file. To do this, **hold down Shift**, right-click the file, and select "Copy as path".
+7.  Paste the copied path into the command prompt by simply right-clicking inside the window, then press Enter. Install AmneziaWG.
 
-### Решение 3: Удаление драйвера wintun:
+### Solution 4: AmneziaVPN instead of AmneziaWG
 
-1.  Удалите AmneziaWG в "Программах и компонентах".
-2.  Откройте [Командную строку от имени администратора](https://wiki.malw.link/windows/run).
-3.  Выполните команды:
-    ```bat
-    dism /online /get-drivers /format:table > drivers.txt
-    notepad drivers.txt
-    ```
-4.  Найдите `wintun.inf`. Нужен соответствующий ему oem-номер. В моём случае это `oem7.inf`:
-    <img src="https://wiki.malw.link/img/network/vpns/amneziawg/wintun-inf.png">
-5.  Выполните команду для его удаления:
-    ```bat
-    pnputil.exe /d oem7.inf
-    ```
-    Вместо 7 подставьте номер, который соответствует wintun.inf в вашем блокноте!
-6.  Скопируйте полный путь к .msi файлу установщика AmneziaWG. Для этого, **удерживая Shift**, нажмите правой кнопкой мыши по нему -> Копировать как путь.
-7.  Вставьте в командную строку скопированный путь, просто нажав по ней правой кнопкой мыши, нажмите Enter. Установите AmneziaWG.
+The [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn) application fully supports AmneziaWG protocol configurations.
 
-### Решение 4: AmneziaVPN вместо AmneziaWG
+## Local network connections not working
 
-Приложение [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn) полностью поддерживает конфиги протокола AmneziaWG.
-
-## Не работают соединения к локальной сети
-
-Откройте конфигурационный файл для редактирования:
+Open the configuration file for editing:
 
 <img src="https://wiki.malw.link/img/network/vpns/amneziawg/edit-tunnel.png"/>
 
-Снимите галочку "Блокировать нетуннелированный трафик".
+Uncheck the "Block non-tunneled traffic" box.
 
-## Failed to set IPv4: error: Destination address required на macOS
+## "Failed to set IPv4: error: Destination address required" on macOS
 
-Удалите [IPv6-адрес](https://ru.wikipedia.org/wiki/IPv6) из файла конфигурации.
+Remove the [IPv6 address](https://en.wikipedia.org/wiki/IPv6) from the configuration file.
 
-# Что-то не получается?
+# Still having trouble?
 
-Напишите в чат: https://t.me/immalware_chat
+Write in the chat: https://t.me/immalware_chat
