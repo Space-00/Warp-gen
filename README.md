@@ -166,7 +166,3 @@ Uncheck the "Block non-tunneled traffic" box.
 ## "Failed to set IPv4: error: Destination address required" on macOS
 
 Remove the [IPv6 address](https://en.wikipedia.org/wiki/IPv6) from the configuration file.
-
-# Still having trouble?
-
-Write in the chat: https://t.me/immalware_chat
